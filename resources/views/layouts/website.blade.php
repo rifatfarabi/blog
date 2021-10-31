@@ -63,6 +63,7 @@
           </div>
 
       </div>
+      <title>Laravel 8 Toastr Notification Example - websolutionstuff.com</title>
     </header>
     
     @yield('content')
@@ -142,6 +143,5 @@
 
   gtag('config', 'UA-23581568-13');
 </script>
-    
-  </body>
+</body>
 </html>

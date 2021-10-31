@@ -43,17 +43,31 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
-                            <td>1.</td>
-                            <td>Software</td>
-                            <td>Update software</td>
-                            <td>
-                              <div class="progress progress-xs">
-                                <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                              </div>
-                            </td>
-                            <td><span class="badge bg-danger">55%</span></td>
-                          </tr>
+
+                            @foreach ($categories as $category)
+                            <tr>
+                              <td>{{ $category->id }}</td>
+                              <td>{{ $category->name }}</td>
+                              <td>{{ $category->slug }}</td>
+                              <td>
+                                {{ $category->id }}
+                              </td>
+
+
+                              <td class="d-flex">
+                                <a href="{{ route('category.edit',$category->id)}}" class="btn btn-sm btn-primary m-1"><i class="fa fa-edit"></i></a>
+                                <form action="{{ route('category.destroy',$category->id)}}" onclick="return confirm('Are you sure to delete')" class=" m-1" method="POST">
+                                  @method('DELETE')
+                                  @csrf
+                                    <button type="submit" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+                                </form>
+            
+                                <a href="{{ route('category.show',$category->id)}}" class="btn btn-sm btn-success m-1"><i class="fa fa-eye"></i></a>
+                              </td>
+
+                           </tr>
+                            @endforeach
+  
                         </tbody>
                       </table>
                     </div>

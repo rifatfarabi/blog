@@ -10,4 +10,10 @@ class Category extends Model
     use HasFactory;
 
     protected $guared = ['created_at', 'deleted_at', 'updated_at'];
+
+    protected $fillable = [
+        "name",
+        "slug",
+        "description",
+    ];
 }
